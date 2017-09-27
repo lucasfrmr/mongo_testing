@@ -1,0 +1,92 @@
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(http-equiv='X-UA-Compatible' content='ie=edge')
+		title #{title}
+		link(rel='stylesheet' href='/bower_components/semantic/dist/semantic.min.css')
+		link(rel='stylesheet' href='/bower_components/datatables/media/css/jquery.dataTables.css')
+		link(rel='stylesheet' href='/bower_components/datatables/media/css/dataTables.semanticui.css')
+		link(rel='stylesheet' href='/css/style.css')
+		script(src='/bower_components/jquery/dist/jquery.min.js')
+		script(src='/bower_components/semantic/dist/semantic.min.js')
+		script(src='/bower_components/datatables/media/js/jquery.dataTables.js')
+		script(src='/bower_components/datatables/media/js/dataTables.semanticui.js')
+		script(src='/js/dt.js')
+	body.Site
+		.Site-content
+			.ui.container.center.aligned
+				.ui.red.menu.inverted
+					if user
+						.header.item #{user.name}
+					a.item(href='/') Home
+					if user
+						a.item(href='/calc') Ship Calculator
+						a.item(href='/products') Products
+						//- used to put the add product icon/button on the navbar
+						//- if (url==='/products')
+						//- 	a.addProduct.item Add Product
+					if user
+						a.item(href='/posts') Posts
+					if user
+						.ui.pointing.dropdown.link.item
+							i.train.icon.black
+							span.text Racks
+							i.dropdown.icon.black
+							.menu
+								a.item(href='#')
+									|       2 Rack
+								a.item(href='#')
+									|       5 Rack
+								a.item(href='#')
+									|       6 Rack
+								a.item(href='#')
+									|       7 Rack
+								a.item(href='#')
+									|       10 Rack
+								a.item(href='#')
+									|       11 Rack
+						.ui.pointing.dropdown.link.item
+							i.anchor.icon.black
+							span.text Docks
+							i.dropdown.icon.black
+							.menu
+								a.item(href='#')
+									|       62 Dock
+								a.item(href='#')
+									|       65 Dock
+								a.item(href='#')
+									|       66 Dock
+								a.item(href='#')
+									|       67 Dock
+						script.
+							$('.ui.dropdown')
+								.dropdown()
+							;
+						//- used to put the add product icon/button on the navbar
+						//- if (url==='/posts')
+						//- 	a.item(href='/posts/add') Add Posts
+					.right.menu
+						if user
+							a.item(href='/users/logout') Logout
+						else
+							a.register.item Register
+							a.login.item Login
+					//- a.item(href='')
+			.ui.container.center.aligned
+				br
+				!= messages('message', locals)
+				if errors
+					each error, i in errors
+						.ui.negative.message
+							// i.close.icon
+							.header #{error.msg}
+				block content
+		footer.footer
+			.ui.container
+				| Created and maintained by 
+				a(href="https://lucasfarmer.com") Lucas Farmer 
+				| Copywrong &copy; 2017.
+			script(src='/js/main.js')
+	include includes/loginRegisterModal

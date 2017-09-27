@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	.ui.segment
+		h1 Register
+		br
+		.ui.one.column.center.aligned.grid
+		.column.six.wide.form-holder
+			// h2.center.aligned.header.form-head Typo's Kill
+			form.ui.form(method='POST', action='/users/register')
+					span
+						.field
+							label Name:
+							input(name='name', type="text")
+						.ui.selection.dropdown
+							input(type="hidden" name="shift")
+							i.dropdown.icon
+							.default.text Shift
+							.menu
+								.item(data-value="a") A
+								.item(data-value="b") B
+								.item(data-value="c") C
+								.item(data-value="d") D
+					.field
+						label Email:			
+						input(name='email', type="text")
+					.field
+						label User Name:			
+						input(name='username', type="text")
+					.field
+						label Password:			
+						input(name='password', type='password')
+					.field
+						label Confirm Password:			
+						input(name='password2', type='password')
+					br
+					.field
+						input.ui.button.large.fluid.green(type="submit" value="submit")

@@ -1,0 +1,145 @@
+.ui.addProduct.modal
+	.ui.white.segment.inverted
+		h1.ui.header.centered Submit Product
+			br
+			hr
+			.ui.red.segment.inverted
+				br
+				.ui.one.column.center.aligned.grid
+				.column.six.wide.form-holder
+				form.ui.form(method='POST', action='/products/add')
+					.ui.equal.width.grid
+						.one.column.row
+							.column
+								.ui.segment
+									h1 Product Info
+									.fields
+										.four.wide.field
+											label Tank
+											input(type="text" name="tank")
+										.four.wide.field
+											label Product
+											input(type="text" name="product")
+										.four.wide.field
+											label Line
+											input(type="text" name="line")
+										.four.wide.field
+											label Average Loading Rate
+											input(type="text" name="avgloadrate")
+										.four.wide.field
+											label Pounds Per Gallon
+											input(type="text" name="ppg")
+										br
+									.fields
+										.four.wide.field
+											label HFR Code
+											input(type="text" name="hfr")
+										.four.wide.field
+											label Tag Color
+											input(type="text" name="tag")
+										.four.wide.field
+											label Freezing Point
+											input(type="text" name="freezepoint")
+										.four.wide.field
+											label Discharge Temp
+											input(type="text" name="dischargetemp")
+										.four.wide.field
+											label Pat System Safe
+											input(type="text" name="pat")
+										br
+									.fields
+										.four.wide.field
+											label Vapor Density
+											input(type="text" name="vapordensity")
+										.eight.wide.field
+											label USCG Name
+											input(type="text" name="uscgname")
+										.four.wide.field
+											label Grade
+											input(type="text" name="grade")
+										br
+					.ui.segment
+						h1 Tank Info
+							.fields
+								.four.wide.field
+									label Safe Max Fill
+									input(type="text" name="safemax")
+								.four.wide.field
+									label IFR
+									input(type="text" name="ifr")
+								.four.wide.field
+									label Quality Heel
+									input(type="text" name="qualityheel")
+								.four.wide.field
+									label Hurricane Heel
+									input(type="text" name="hurricaneheel")
+								br
+					.ui.grid
+						.three.column.row
+							.column
+								.ui.segment
+									.field
+										h1 Tank Truck Spots
+										.field
+											input(type="checkbox" name="ttspot" value="2")
+											lable 2 Rack
+										.field
+											input(type="checkbox" name="ttspot" value="5")
+											lable 5 Rack
+										.field
+											input(type="checkbox" name="ttspot" value="6")
+											lable 6 Rack
+										.field
+											input(type="checkbox" name="ttspot" value="7")
+											lable 7 Rack
+										br
+							.column
+								.ui.segment
+									.field
+										h1 Tank Car Spots
+										.field
+											lable 2 Rack
+											input(type="checkbox" name="tcspot" value="2")
+										.field
+											lable 5 Rack
+											input(type="checkbox" name="tcspot" value="5")
+										.field
+											lable 6 Rack
+											input(type="checkbox" name="tcspot" value="6")
+										.field
+											lable 7 Rack
+											input(type="checkbox" name="tcspot" value="7")
+										.field
+											lable 10 Rack
+											input(type="checkbox" name="tcspot" value="10")
+							.column
+								.ui.segment
+									.field
+										h1 Dock Spots
+										.field
+											lable 2 Dock
+											input(type="checkbox" name="docks" value="2")
+										.field
+											lable 5 Dock
+											input(type="checkbox" name="docks" value="5")
+										.field
+											lable 6 Dock
+											input(type="checkbox" name="docks" value="6")
+										.field
+											lable 7 Dock
+											input(type="checkbox" name="docks" value="7")
+										br
+					.field
+						label.ui.center.aligned.grid Notes:
+						textarea.ui.large(type='text', name='notes')
+					.field
+						input.ui.button.large.fluid.white(type="submit" value="submit")
+script.
+	$('.addProduct.header').click(function(){
+		$('.ui.addProduct.modal').modal('show');
+	});
+
+script.
+	$('.Product.item').click(function(){
+		$('.ui.Product.modal').modal('show');
+	});

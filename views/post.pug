@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1= post.title
+	h5 Written by #{author}
+	p= post.body
+	hr
+	if user
+		if user.id ==post.author
+			a.ui.button(href='/posts/edit/'+post._id) Edit
+			a.negative.ui.button.delete-post(href='#', data-id=post._id) Delete

@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	if user
+		.Aligner
+			h1.quotes.Aligner-item Safety and Reliability:
+				p There is nothing more important than doing our work without injury to ourselves or others or harm to our communities. We understand that taking care of our equipment and facilities is essential to ensuring safe operations and meeting out customer's needs.
+			h1.quotes.Aligner-item Respect and Care for All People:
+				p Oiltankers are guided by a deep and sincere care for the well-being and dignity of others. We help people grow professionally and recognize their contributions. We treat all people with respect.
+			h1.quotes.Aligner-item Honesty and Integrity:
+				p Oiltanking maintains the highest ethical standards. We keep our promises and take responsibility for our words and actions. We deal fairly with others, not seeking undue advantage.
+			h1.quotes.Aligner-item Commitment to Sustainability:
+				p Oiltanking is committed to being a responsible steward of the environmemt. We believe long-term economic growth must be achieved with long-tern environmental sustainability.
+			h1.quotes.Aligner-item Excellence in All We Do:
+				p Oiltankers do the common uncommonly well. We continuously strive to be the best at what we do. Each of us must execute our unique role in the organization with the highest levels of competence.
+
+	//- if user
+	//- 	.ui.black.segment.inverted
+	//- 		h1.ui.header.inverted Users
+	//- 		br
+	//- 		hr
+	//- 		.ui.red.segment.inverted
+	//- 			table#myTable2.ui.celled.table
+	//- 				thead
+	//- 					tr
+	//- 						th Name
+	//- 						th Shift
+	//- 						th ID
+	//- 						th Email
+	//- 				tbody
+	//- 					each user, i in users
+	//- 						tr
+	//- 							td= user.name
+	//- 							td= user.shift
+	//- 							td
+	//- 								a(href='#')= user._id
+	//- 							td= user.email
+

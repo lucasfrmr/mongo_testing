@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	h1 #{title}
+	br
+	.ui.one.column.center.aligned.grid
+	.column.six.wide.form-holder
+		form.ui.form(method='POST', action='/posts/edit/'+post._id)
+				.field
+					label Title:
+					input(name='title', type="text", value=post.title)
+				.field
+					label Author:			
+					input(name='author', type="text", value=post.author)
+				.field
+					label Body:			
+					textarea(name='body')= post.body
+				br
+				.field
+					input.ui.button.large.fluid.green(type="submit" value="submit")

@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  .ui.black.segment.inverted
+      h2.ui.addPost.header
+        i.large.icons
+          i.file.text.icon
+          i.red.corner.add.icon
+        |   Submit Post
+      hr
+      .ui.red.segment.inverted
+        h1.ui.header.inverted #{title}
+        table#myTable.ui.celled.table
+          thead
+            tr
+              th Title
+              th Author
+              th Body
+          tbody
+            each post, i in posts
+              tr
+                td
+                  a(href='/posts/'+post._id)= post.title
+                td= post.author
+                td= post.body
+  .ui.container
+    .ui.addPost.modal
+      .ui.white.segment.inverted
+        h1.ui.header.centered Submit Post
+          br
+          hr
+          .ui.red.segment.inverted
+            br
+            .ui.one.column.center.aligned.grid
+            .column.six.wide.form-holder
+              form.ui.form(method='POST', action='/posts/add')
+                .field
+                  label Title:
+                  input(name='title', type="text")
+                .field
+                  label Body:     
+                  textarea(name='body')
+                br
+                .field
+                  input.ui.button.large.fluid.white(type="submit" value="submit")
+  script.
+    $(document).ready(function(){
+      $('.addPost.header').click(function(){
+        $('.ui.addPost.modal').modal('show');
+      });
+    });
