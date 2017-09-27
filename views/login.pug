@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	h1 Login
+	br
+	.ui.one.column.center.aligned.grid
+	.column.six.wide.form-holder
+		// h2.center.aligned.header.form-head Typo's Kill
+		form.ui.form(method='POST', action='/users/login')
+				.field
+					label User Name:			
+					input(name='username', type='text')
+				.field
+					label Password:			
+					input(name='password', type='password')
+				br
+				.field
+					input.ui.button.large.fluid.green(type="submit" value="submit")

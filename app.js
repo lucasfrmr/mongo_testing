@@ -28,7 +28,6 @@ db.on('error', (err) => {
 const app = express();
 
 //Bring in models
-let Product = require('./models/product');
 let Post = require('./models/post');
 let User = require('./models/user');
 
@@ -94,18 +93,15 @@ app.get('*', (req, res, next) => {
 app.get('/', (req, res) => {
   Post.find({}, (err, posts) => {
     User.find({}, (err, users) => {
-      Product.find({}, (err, products) => {
-        if (err){
-          console.log(err);
-        } else {
-          res.render('index', {
-            title: "Home",
-            posts: posts,
-            users: users,
-            products: products
-          });
-        }
-      });  
+      if (err){
+        console.log(err);
+      } else {
+        res.render('index', {
+          title: "Home",
+          posts: posts,
+          users: users
+        });
+      } 
     });
   });
 });
